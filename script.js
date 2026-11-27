@@ -24,10 +24,10 @@ form.addEventListener('submit', event => {
   event.preventDefault();
   if (!form.reportValidity()) return;
   const data = new FormData(form);
-  const source = interest.value.startsWith('רכב פרטי לפאי') ? 'אתר ThaiTov — רכב פרטי לפאי' : 'אתר ThaiTov';
-  const lines = ['שלום! אשמח לתכנן טיול בתאילנד.', `מקור הפנייה: ${source}`, `שם: ${data.get('name')}`, `מעניין אותי: ${data.get('interest')}`];
-  if (data.get('dates')) lines.push(`תאריכים: ${data.get('dates')}`);
-  if (data.get('people')) lines.push(`מספר מטיילים: ${data.get('people')}`);
-  if (data.get('details')) lines.push(`פרטים נוספים: ${data.get('details')}`);
+  const source = interest.value.startsWith('רכב פרטי לפאי') ? 'ThaiTov website — Pai private car' : 'ThaiTov website';
+  const lines = ['Hello! I would like help planning a trip in Thailand.', `Lead source: ${source}`, `Name: ${data.get('name')}`, `Interested in: ${data.get('interest')}`];
+  if (data.get('dates')) lines.push(`Travel dates: ${data.get('dates')}`);
+  if (data.get('people')) lines.push(`Number of travelers: ${data.get('people')}`);
+  if (data.get('details')) lines.push(`Additional details: ${data.get('details')}`);
   window.open(`https://wa.me/66929894495?text=${encodeURIComponent(lines.join('\n'))}`, '_blank', 'noopener,noreferrer');
 });
